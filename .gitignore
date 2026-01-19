@@ -1,10 +1,57 @@
-# Python / backend
+#############################
+#       PYTHON / BACKEND   #
+#############################
+
+venv/
 backend/venv/
 backend/__pycache__/
-backend/*.pyc
+backend/**/*.pyc
+*.pyc
+
+# Environment files
+.env
 backend/.env
 
-# Node / frontend
+#############################
+#     ANGULAR / FRONTEND    #
+#############################
+
+# Node modules
 frontend_app/node_modules/
+
+# Build output
 frontend_app/dist/
-frontend_app/.env
+frontend_app/.angular/
+frontend_app/tmp/
+frontend_app/out-tsc/
+frontend_app/bazel-out/
+
+# Logs
+frontend_app/npm-debug.log
+frontend_app/yarn-error.log
+
+# Angular cache
+frontend_app/.angular/cache
+
+# Misc CLI caches
+frontend_app/.sass-cache/
+frontend_app/coverage/
+frontend_app/.history/
+
+#############################
+#    IDE / TOOLING FILES    #
+#############################
+
+# VSCode
+.vscode/
+frontend_app/.vscode/
+
+# IntelliJ / WebStorm
+frontend_app/.idea/
+frontend_app/.project
+frontend_app/.classpath
+frontend_app/.settings/
+
+# OS files
+**/.DS_Store
+**/Thumbs.db
