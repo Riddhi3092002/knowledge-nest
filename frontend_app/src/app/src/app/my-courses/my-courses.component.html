@@ -1,0 +1,66 @@
+<div class="instruction-text" *ngIf="courses && courses.length">
+  <mat-icon style="vertical-align: middle; color: #2034a2">info</mat-icon>
+  <span
+    >Course Data is Online_Courses.csv on Kaggle. Course links redirect to the
+    official providers.</span
+  >
+</div>
+<div class="my-courses-container">
+  <mat-card class="my-courses-card">
+    <div class="my-courses-header">
+      <button
+        mat-raised-button
+        color="primary"
+        [ngClass]="{ 'selected-inprogress': selectedTab === 'in-progress' }"
+        (click)="selectTab('in-progress')"
+      >
+        In Progress
+      </button>
+      <button
+        mat-raised-button
+        color="accent"
+        [ngClass]="{ 'selected-completed': selectedTab === 'completed' }"
+        (click)="selectTab('completed')"
+      >
+        Completed
+      </button>
+    </div>
+
+    <div *ngIf="filteredCourses.length === 0" class="no-courses">
+      No courses found.
+    </div>
+
+    <div class="courses-list">
+      <div class="course-row" *ngFor="let course of filteredCourses">
+        <mat-card class="course-card">
+          <div class="course-title">{{ course.courseName }}</div>
+          <div class="course-status" [ngClass]="course.status">
+            {{ course.status | titlecase }}
+          </div>
+          <div class="progress-row">
+            <mat-progress-bar
+              mode="determinate"
+              [value]="getProgress(course)"
+              color="accent"
+              class="custom-progress-bar"
+            ></mat-progress-bar>
+            <span class="progress-label">
+              {{ getProgress(course) | number : "1.0-0" }}% &nbsp; ({{
+                getCompletedMilestones(course)
+              }}/{{ course.milestones.length }} milestones)
+            </span>
+          </div>
+        </mat-card>
+        <div class="course-action">
+          <button
+            mat-raised-button
+            class="go-to-course-btn"
+            (click)="viewDetails(course)"
+          >
+            View Details
+          </button>
+        </div>
+      </div>
+    </div>
+  </mat-card>
+</div>

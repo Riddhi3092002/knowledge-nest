@@ -1,0 +1,52 @@
+.spacer {
+  flex: 1 1 auto;
+}
+mat-toolbar {
+  font-family: 'Montserrat', 'Poppins', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: white;
+}
+
+mat-toolbar span {
+  font-family: 'Poppins', 'Montserrat', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: white;
+}
+
+.profile-name {
+  font-family: 'Poppins', 'Montserrat', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 1.08rem;
+  font-weight: 600;
+}
+
+.navbar-logo {
+  height: 100%;
+  max-height: 64px; /* Adjust if your toolbar is taller */
+  width: auto;
+  min-width: 180px; /* Make it wider */
+  object-fit: contain;
+  margin-right: 24px;
+  display: block;
+}
+mat-toolbar {
+  min-height: 64px; /* Ensure toolbar is tall enough for the logo */
+  align-items: center;
+}
+
+mat-toolbar button {
+  color: #fff !important;
+  transition: box-shadow 0.2s;
+}
+
+mat-toolbar button:active,
+mat-toolbar button:focus {
+  background: #2034a2 !important; /* Dark blue background */
+  color: #fff !important;
+  box-shadow: 0 4px 18px rgba(15, 19, 47, 0.35), 0 2px 8px rgba(4,113,226,0.22);
+  outline: none;
+}

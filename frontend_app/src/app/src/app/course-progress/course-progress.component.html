@@ -1,0 +1,136 @@
+<div class="course-progress-container" *ngIf="course">
+  <mat-card class="course-progress-card">
+    <!-- Title -->
+    <h2 class="course-title">{{ course.courseName }}</h2>
+
+    <!-- Meta Info -->
+    <div class="course-meta">
+      <div>
+        <mat-icon>calendar_today</mat-icon>
+        <span
+          >Days since started: <b>{{ daysSinceStarted }}</b></span
+        >
+      </div>
+      <div>
+        <mat-icon>link</mat-icon>
+        <a [href]="course_Details?.URL" target="_blank" rel="noopener"
+          >Go to Course</a
+        >
+      </div>
+      <div>
+        <mat-icon>public</mat-icon>
+        <span
+          >Official Course Provider: <b>{{ course_Details?.Site }}</b></span
+        >
+      </div>
+    </div>
+
+    <!-- Progress Section -->
+    <div class="progress-spinner-wrapper">
+      <mat-progress-spinner
+        [value]="progressPercent"
+        mode="determinate"
+        diameter="110"
+        strokeWidth="12"
+      ></mat-progress-spinner>
+      <div class="spinner-center-label">
+        {{ progressPercent | number : "1.0-0" }}%
+      </div>
+    </div>
+
+    <mat-card class="milestones-section">
+      <h3>Milestones</h3>
+      <div class="milestones-list-scroll">
+        <mat-list>
+          <mat-list-item
+            *ngFor="let milestone of course.milestones; let i = index"
+          >
+            <mat-icon matListIcon color="primary">flag</mat-icon>
+            <mat-checkbox
+              [(ngModel)]="course.milestones[i].completed"
+              color="primary"
+              [disabled]="milestone.date"
+            >
+              Week {{ milestone.week }}
+            </mat-checkbox>
+            <span *ngIf="milestone.date" class="milestone-date">
+              <mat-icon
+                inline
+                style="font-size: 18px; color: #43a047; vertical-align: middle"
+                >event</mat-icon
+              >
+              <span style="color: #388e3c; font-weight: 500; margin-left: 4px">
+                Completed: {{ milestone.date | date : "longDate" }}
+              </span>
+            </span>
+          </mat-list-item>
+        </mat-list>
+      </div>
+      <button
+        mat-raised-button
+        color="primary"
+        class="update-btn"
+        (click)="updateMilestones()"
+      >
+        Update Progress
+      </button>
+    </mat-card>
+
+    <!-- Comments Section -->
+    <mat-card class="comments-section">
+  <h3>Comments</h3>
+  <div class="add-comment-row">
+    <mat-form-field appearance="fill" class="comment-field">
+      <mat-label>Add a comment...</mat-label>
+      <input
+        matInput
+        [(ngModel)]="newComment"
+        (keyup.enter)="addComment()"
+        autocomplete="off"
+      />
+    </mat-form-field>
+    <button
+      mat-icon-button
+      color="primary"
+      (click)="addComment()"
+      [disabled]="!newComment.trim()"
+    >
+      <mat-icon>send</mat-icon>
+    </button>
+  </div>
+  <div class="comments-list-scroll" *ngIf="course.comments && course.comments.length; else noComments">
+    <mat-list>
+      <mat-list-item *ngFor="let comment of course.comments">
+        <mat-icon matListIcon color="accent">chat_bubble</mat-icon>
+        <span class="comment-text">{{ comment.comments }}</span>
+        <span class="comment-date">{{ comment.date | date:'short' }}</span>
+      </mat-list-item>
+    </mat-list>
+  </div>
+  <ng-template #noComments>
+    <div class="no-comments">
+      <mat-icon color="warn">info</mat-icon>
+      No comments yet. Be the first to add one!
+    </div>
+  </ng-template>
+</mat-card>
+    <!-- Complete Course Button -->
+    <div class="complete-course-section">
+      <button
+        mat-raised-button
+        color="accent"
+        [disabled]="!allMilestonesCompleted() || course.status === 'completed'"
+        (click)="completeCourse()"
+        class="complete-btn"
+      >
+        Complete Course
+      </button>
+    </div>
+  </mat-card>
+</div>
+<ng-template #errorDialog let-data>
+  <div style="color:#b71c1c; background:#ffebee; padding:24px 18px; border-radius:10px; text-align:center; height: 150px">
+    <mat-icon color="warn" style="font-size:2.5rem; padding: 20px">error</mat-icon>
+    <div style="margin-top:10px; font-size:1.15rem;">{{ data }}</div>
+  </div>
+</ng-template>

@@ -1,0 +1,59 @@
+<div class="login-container">
+  <mat-card>
+    <mat-card-content>
+      <div class="login-instruction">
+        <mat-icon class="login-icon">login</mat-icon>
+        <span>Welcome back! Please log in to continue.</span>
+      </div>
+      <h2 class="login-title">Login</h2>
+      <form (ngSubmit)="onLogin()" #loginForm="ngForm" class="login-form">
+        <mat-form-field appearance="outline" class="login-field">
+          <mat-label>Username</mat-label>
+          <input
+            matInput
+            type="text"
+            [(ngModel)]="loginData.username"
+            name="username"
+            required
+          />
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="login-field">
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            type="password"
+            [(ngModel)]="loginData.password"
+            name="password"
+            required
+          />
+        </mat-form-field>
+        <div *ngIf="loginError" class="login-error">
+          <mat-icon color="warn" style="vertical-align: middle">error</mat-icon>
+          {{ loginError }}
+        </div>
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          [disabled]="!loginForm.form.valid"
+        >
+          Login
+        </button>
+      </form>
+      <div class="login-link">
+        <span>Don't have an account?</span>
+        <a routerLink="/signup">Sign Up</a>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<ng-template #invalidDialog>
+  <h2 mat-dialog-title>Login Failed</h2>
+  <mat-dialog-content
+    >Invalid credentials. Please try again.</mat-dialog-content
+  >
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>OK</button>
+  </mat-dialog-actions>
+</ng-template>
