@@ -5,17 +5,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MaterialModule } from './material/material.module';
-import { SearchCoursesComponent } from './src/app/search-courses/search-courses.component';
-import { MyCoursesComponent } from './src/app/my-courses/my-courses.component';
-import { SummarizeComponent } from './src/app/summarize/summarize.component';
-import { GenerateQuizComponent } from './src/app/generate-quiz/generate-quiz.component';
-import { DashboardComponent } from './src/app/dashboard/dashboard.component';
+import { SearchCoursesComponent } from './search-courses/search-courses.component';
+import { MyCoursesComponent } from './my-courses/my-courses.component';
+import { SummarizeComponent } from './summarize/summarize.component';
+import { GenerateQuizComponent } from './generate-quiz/generate-quiz.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { CourseDetailDialogComponent } from './src/app/course-detail-dialog/course-detail-dialog.component';
+import { CourseDetailDialogComponent } from './course-detail-dialog/course-detail-dialog.component';
 import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { AuthInterceptor } from './auth/auth.interceptor';
-import { CourseProgressComponent } from './src/app/course-progress/course-progress.component';
+import { CourseProgressComponent } from './course-progress/course-progress.component';
 
 @NgModule({
   declarations: [
