@@ -14,12 +14,13 @@ app = FastAPI()
 # Allow requests from your Angular app
 origins = [
     "http://localhost:4200",  # Angular dev server
+    "https://theknowledgenest.netlify.app"
 ]
 
 # Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],              # who can access
+    allow_origins=origins,              # who can access
     allow_credentials=True,
     allow_methods=["*"],                # allow all HTTP methods
     allow_headers=["*"],                # allow all headers
