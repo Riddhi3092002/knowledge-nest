@@ -6,11 +6,13 @@ import fitz
 import re
 
 load_dotenv()
-GITHUB_API_KEY = os.getenv("GITHUB_TOKEN")
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+client = OpenAI(
+    api_key=GROQ_API_KEY, 
+    base_url="https://api.groq.com/openai/v1"
+)
+MODEL_NAME = "llama-3.3-70b-versatile"
 router = APIRouter()
-# GitHub-hosted OpenAI endpoint
-client = OpenAI(api_key=GITHUB_API_KEY, base_url="https://models.github.ai/inference")
-MODEL_NAME = "openai/gpt-4o"
 
 MAX_CHARS_PER_CHUNK = 1500  # adjust to avoid token limits
 

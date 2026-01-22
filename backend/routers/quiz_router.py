@@ -9,12 +9,14 @@ from openai import OpenAI
 from models.quiz_model import Question, QuizRequest, QuizResponse
 
 load_dotenv()
-GITHUB_API_KEY = os.getenv("GITHUB_TOKEN")
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+client = OpenAI(
+    api_key=GROQ_API_KEY, 
+    base_url="https://api.groq.com/openai/v1"
+)
+MODEL_NAME = "llama-3.3-70b-versatile"
 
 router = APIRouter()
-MODEL_NAME = "openai/gpt-4o"
-client = OpenAI(api_key=GITHUB_API_KEY, base_url="https://models.github.ai/inference")
-
 def github_generate_quiz(skills: str) -> str:
     prompt = f"""
     You are a helpful assistant. Generate 3 multiple-choice questions (A-D) to test knowledge of the following skills: {skills}.
