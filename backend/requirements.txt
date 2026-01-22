@@ -2,11 +2,12 @@ fastapi
 uvicorn
 python-dotenv
 pydantic
-passlib[bcrypt]
+passlib[bcrypt]==1.8.2
+bcrypt>=4.0.1
 python-jose[cryptography]
-motor    
+motor
 python-docx
 docx2txt
 PyMuPDF
-python-multipart 
+python-multipart
 openai
