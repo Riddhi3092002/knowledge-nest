@@ -1,6 +1,7 @@
 .spacer {
   flex: 1 1 auto;
 }
+
 mat-toolbar {
   font-family: 'Montserrat', 'Poppins', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
   font-size: 1.25rem;
@@ -8,6 +9,8 @@ mat-toolbar {
   letter-spacing: 1.2px;
   text-transform: uppercase;
   color: white;
+  min-height: 64px;
+  align-items: center;
 }
 
 mat-toolbar span {
@@ -26,16 +29,12 @@ mat-toolbar span {
 
 .navbar-logo {
   height: 100%;
-  max-height: 64px; /* Adjust if your toolbar is taller */
+  max-height: 64px;
   width: auto;
-  min-width: 180px; /* Make it wider */
+  min-width: 180px;
   object-fit: contain;
   margin-right: 24px;
   display: block;
-}
-mat-toolbar {
-  min-height: 64px; /* Ensure toolbar is tall enough for the logo */
-  align-items: center;
 }
 
 mat-toolbar button {
@@ -45,8 +44,37 @@ mat-toolbar button {
 
 mat-toolbar button:active,
 mat-toolbar button:focus {
-  background: #2034a2 !important; /* Dark blue background */
+  background: #2034a2 !important;
   color: #fff !important;
   box-shadow: 0 4px 18px rgba(15, 19, 47, 0.35), 0 2px 8px rgba(4,113,226,0.22);
   outline: none;
+}
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;             
+  height: 100vh;           
+  background: rgba(255, 255, 255, 0.95);
+  display: flex;
+  justify-content: center;  
+  align-items: center;     
+  flex-direction: column;
+  z-index: 9999;
+  text-align: center;
+}
+
+.spinner-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;      
+}
+
+.spinner-container p {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #3056a5;
+  transform: translateX(-10px); 
 }

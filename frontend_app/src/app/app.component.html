@@ -1,40 +1,46 @@
-<mat-toolbar color="warn" [ngStyle]="{ 'background-color': 'rgb(48, 86, 165, 1)' }">
-   <img src="/assets/Title.png" alt="KnowledgeNest Logo" class="navbar-logo" />
-  <span class="spacer"></span>
 
-  <ng-container class="loggedInLinks" *ngIf="!isLoggedIn(); else loggedInLinks">
-    <button mat-button routerLink="/login">Login</button>
-    <button mat-button routerLink="/signup">Sign Up</button>
-  </ng-container>
+<div *ngIf="!backendReady" class="loading-overlay">
+  <div class="spinner-container">
+    <mat-spinner color="primary"></mat-spinner>
+    <p>Waking up backend, please wait...</p>
+  </div>
+</div>
 
-  <ng-template class="loggedInLinks" #loggedInLinks>
-    <button mat-button routerLink="">Dashboard</button>
-    <button mat-button routerLink="/search-courses">Search Courses</button>
-    <button mat-button routerLink="/my-courses">My Courses</button>
-    <button mat-button routerLink="/summarize">Summarize</button>
-    <button mat-button routerLink="/generate-quiz">Generate Quiz</button>
-    <button mat-icon-button [matMenuTriggerFor]="profileMenu">
-      <mat-icon>account_circle</mat-icon>
-    </button>
-    <mat-menu #profileMenu="matMenu">
-      <button
-        mat-menu-item
-        class="profile-name"
-        tabindex="-1"
-        style="pointer-events: none"
-      >
-        <mat-icon>person</mat-icon>
-        {{ firstName }} {{ lastName }}
+<div *ngIf="backendReady">
+  <mat-toolbar color="warn" [ngStyle]="{ 'background-color': 'rgb(48, 86, 165, 1)' }">
+    <img src="/assets/Title.png" alt="KnowledgeNest Logo" class="navbar-logo" />
+    <span class="spacer"></span>
+
+    <ng-container class="loggedInLinks" *ngIf="!isLoggedIn(); else loggedInLinks">
+      <button mat-button routerLink="/login">Login</button>
+      <button mat-button routerLink="/signup">Sign Up</button>
+    </ng-container>
+
+    <ng-template class="loggedInLinks" #loggedInLinks>
+      <button mat-button routerLink="">Dashboard</button>
+      <button mat-button routerLink="/search-courses">Search Courses</button>
+      <button mat-button routerLink="/my-courses">My Courses</button>
+      <button mat-button routerLink="/summarize">Summarize</button>
+      <button mat-button routerLink="/generate-quiz">Generate Quiz</button>
+      <button mat-icon-button [matMenuTriggerFor]="profileMenu">
+        <mat-icon>account_circle</mat-icon>
       </button>
-      <button mat-menu-item (click)="goToProfile()">
-        <mat-icon>manage_accounts</mat-icon>
-        Profile
-      </button>
-      <button mat-menu-item (click)="logout()">
-        <mat-icon>logout</mat-icon>
-        Logout
-      </button>
-    </mat-menu>
-  </ng-template>
-</mat-toolbar>
-<router-outlet></router-outlet>
+      <mat-menu #profileMenu="matMenu">
+        <button mat-menu-item class="profile-name" tabindex="-1" style="pointer-events: none">
+          <mat-icon>person</mat-icon>
+          {{ firstName }} {{ lastName }}
+        </button>
+        <button mat-menu-item (click)="goToProfile()">
+          <mat-icon>manage_accounts</mat-icon>
+          Profile
+        </button>
+        <button mat-menu-item (click)="logout()">
+          <mat-icon>logout</mat-icon>
+          Logout
+        </button>
+      </mat-menu>
+    </ng-template>
+  </mat-toolbar>
+
+  <router-outlet></router-outlet>
+</div>
