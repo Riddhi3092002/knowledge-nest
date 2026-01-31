@@ -35,6 +35,7 @@ export class CourseProgressComponent {
     now.setHours(0, 0, 0, 0);
 
     this.daysSinceStarted = Math.floor((now.getTime() - started.getTime()) / (1000 * 60 * 60 * 24));
+    this.daysSinceStarted = Math.max(0, this.daysSinceStarted);
   }
 }
 

@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  backendUrl: 'https://knowledge-nest-1-9w6u.onrender.com'
+  backendUrl: 'https://knowledge-nest-backend.onrender.com'
 };
