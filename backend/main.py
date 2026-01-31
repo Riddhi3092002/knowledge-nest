@@ -10,23 +10,19 @@ from dotenv import load_dotenv
 load_dotenv()
 app = FastAPI()
 
-
-# Allow requests from your Angular app
 origins = [
-    "http://localhost:4200",  # Angular dev server
+    "http://localhost:4200",  
     "https://theknowledgenest.netlify.app"
 ]
 
-# Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,              # who can access
+    allow_origins=origins,              
     allow_credentials=True,
-    allow_methods=["*"],                # allow all HTTP methods
-    allow_headers=["*"],                # allow all headers
+    allow_methods=["*"],                
+    allow_headers=["*"],                
 )
 
-# Register the router
 app.include_router(course_router.router, prefix="/api")
 app.include_router(user_router.user_router, prefix="/api")
 app.include_router(summarize_router.router, prefix="/utils", tags=["Summarization"])

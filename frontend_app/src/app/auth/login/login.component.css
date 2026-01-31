@@ -6,8 +6,8 @@
   padding: 0px;
   margin: 0px;
   background: url('/assets/Login.png');
-  background-size: cover;      /* Cover the entire area without stretching */
-  background-position: center; /* Center the image */
+  background-size: cover;      
+  background-position: center; 
   background-repeat: no-repeat;
 }
 

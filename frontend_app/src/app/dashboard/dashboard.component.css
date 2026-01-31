@@ -4,7 +4,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  background: url('/assets/Dashboard2.jpg'); /* No slash at the start */
+  background: url('/assets/Dashboard2.jpg'); 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -28,10 +28,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: transparent;      /* Remove card background */
-  box-shadow: none;             /* Remove card shadow */
+  background: transparent;      
+  box-shadow: none;             
   border-radius: 22px;
-  padding: 0;                   /* Remove card padding */
+  padding: 0;                   
 }
 
 .welcome-card h1 {
@@ -72,7 +72,7 @@
 .dashboard-card-image {
   width: 100%;
   height: auto;
-  max-height: 350px;            /* Limit image height */
+  max-height: 350px;            
   object-fit: cover;
   border-radius: 22px;
   display: block;

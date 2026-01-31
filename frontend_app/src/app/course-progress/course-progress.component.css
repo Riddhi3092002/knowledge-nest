@@ -77,7 +77,6 @@
   font-weight: 600;
 }
 
-/* Make milestones list scrollable and visually distinct */
 .milestones-list-scroll {
   max-height: 260px;
   overflow-y: auto;
@@ -172,11 +171,10 @@
   transform: translate(-50%, -50%);
   font-size: 1.5rem;
   font-weight: 700;
-  color: #43a047; /* Green */
+  color: #43a047; 
   pointer-events: none;
 }
 
-/* Force spinner arc to green for MDC-based Angular Material */
 ::ng-deep .mat-mdc-progress-spinner .mdc-circular-progress__determinate-circle-graphic,
 ::ng-deep .mat-mdc-progress-spinner .mdc-circular-progress__indeterminate-circle-graphic,
 ::ng-deep .mat-mdc-progress-spinner circle {

@@ -31,8 +31,6 @@ export class CourseProgressComponent {
   if (this.course.startedAt) {
     const started = new Date(this.course.startedAt);
     const now = new Date();
-
-    // reset to midnight
     started.setHours(0, 0, 0, 0);
     now.setHours(0, 0, 0, 0);
 
@@ -56,7 +54,6 @@ export class CourseProgressComponent {
 
   updateMilestones() {
   const now = new Date().toISOString();
-  // Only send milestones that are checked and not already completed
   const updatedMilestones = this.course.milestones
     .filter((m: any) => m.completed && !m.date)
     .map((m: any) => ({
@@ -67,7 +64,6 @@ export class CourseProgressComponent {
 
   this.learnMateService.updateMilestones(this.course.courseName, updatedMilestones)
     .subscribe(() => {
-      // Mark these milestones as completed locally so they become disabled
       updatedMilestones.forEach((um: any) => {
         const local = this.course.milestones.find((m: any) => m.week === um.week);
         if (local) {

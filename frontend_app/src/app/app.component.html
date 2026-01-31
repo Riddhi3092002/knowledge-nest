@@ -1,8 +1,10 @@
-
 <div *ngIf="!backendReady" class="loading-overlay">
   <div class="spinner-container">
     <mat-spinner color="primary"></mat-spinner>
-    <p>Waking up backend, please wait...</p>
+    <p>😴 The app went to sleep due to inactivity. Waking it up now… hang tight!</p>
+    <button mat-stroked-button color="primary" (click)="pingBackend()" *ngIf="!backendLoading">
+      Wake up now
+    </button>
   </div>
 </div>
 

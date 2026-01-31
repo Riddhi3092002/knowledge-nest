@@ -12,8 +12,6 @@ def parse_duration_to_milestones(duration: str) -> List[Milestone]:
     duration = duration.strip()
  
     print(f"Parsing duration: original='{original}' cleaned='{duration}'")
-
-    # Regex to find number + unit (plural or singular)
     match = re.search(r'([\d.]+)\s*(week|weeks|month|months|hour|hours)', duration)
     if not match:
         print("No match found in duration string")
@@ -24,7 +22,6 @@ def parse_duration_to_milestones(duration: str) -> List[Milestone]:
     print(f"Matched num={num}, unit={unit}")
 
     if 'month' in unit:
-        # Round to nearest week count
         num_weeks = int(num * 4 + 0.5)
     elif 'week' in unit:
         num_weeks = int(num + 0.5)

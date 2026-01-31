@@ -2,11 +2,9 @@ from transformers import pipeline
 import fitz  
 import docx2txt
 
-# Load model once
 summarizer = pipeline("summarization", model="t5-small", tokenizer="t5-small")
 
 def summarize_text(text: str) -> str:
-    # T5-small has a token limit of ~512
     words = text.split()
     if len(words) > 512:
         text = " ".join(words[:512])

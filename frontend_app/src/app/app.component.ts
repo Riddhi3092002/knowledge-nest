@@ -12,6 +12,7 @@ export class AppComponent {
   firstName = '';
   lastName = '';
   backendReady = false;
+  backendLoading = false;
 
   constructor(private router: Router, private http: HttpClient) {
     this.loadUser();
@@ -22,10 +23,12 @@ export class AppComponent {
   }
 
   pingBackend() {
+    this.backendLoading = true;
     this.http.get(environment.backendUrl).subscribe({
       next: () => {
         console.log('Backend is awake');
         this.backendReady = true;
+        this.backendLoading = false;
       },
       error: () => {
         console.log('Backend not reachable yet, retrying in 5s...');
@@ -39,7 +42,7 @@ export class AppComponent {
   }
 
   loadUser() {
-    if(this.isLoggedIn()) {
+    if (this.isLoggedIn()) {
       this.firstName = localStorage.getItem('firstName') || '';
       this.lastName = localStorage.getItem('lastName') || '';
     }

@@ -6,7 +6,7 @@ class Course(BaseModel):
     Title: str
     URL: str
     Short_Intro: Optional[str] = Field(None, alias="Short Intro")
-    Skills: Optional[str]  # Comma-separated string
+    Skills: Optional[str]  
     Rating: Optional[str]
     Instructors: Optional[str]
     Duration: Optional[str]

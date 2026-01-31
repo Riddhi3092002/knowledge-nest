@@ -1,8 +1,8 @@
 .summarize-card {
-  max-width: 1250px;         /* Increased width */
-  min-height: 550px;        /* Increased height */
+  max-width: 1250px;        
+  min-height: 550px;        
   margin: 48px auto 0 auto;
-  padding: 56px 56px 48px 56px; /* More padding for a spacious look */
+  padding: 56px 56px 48px 56px; 
   border-radius: 22px;
   background: #f8fafd;
   box-shadow: 0 6px 32px rgba(32,52,162,0.13);

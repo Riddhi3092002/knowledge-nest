@@ -38,7 +38,6 @@ export class SearchCoursesComponent implements OnInit {
   searchCourses() {
     this.learnMateService.getCoursesByCategory(this.selectedTopic).subscribe(
       (data: any[]) => {
-        // Convert Skills string to array for display
         this.courses = data.map(course => ({
           ...course,
           Skills: course.Skills

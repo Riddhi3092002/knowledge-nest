@@ -40,7 +40,7 @@ async def add_course_to_user(
     current_user: str = Depends(get_current_user)
 ):
     
-    from database.mongo import user_collection  # import here to avoid circular import
+    from database.mongo import user_collection  
     from datetime import datetime
 
     course_name = course.get("Title")
@@ -58,7 +58,7 @@ async def add_course_to_user(
 
     print(f"Adding course entry: {course_entry}")
 
-    # Add to user's courses array
+    
     result = await user_collection.update_one(
         {"username": current_user},
         {"$push": {"courses": course_entry}}
@@ -109,12 +109,12 @@ async def add_comment(
 @router.post("/user-course/update-milestones")
 async def update_milestones(
     course_name: str = Body(...),
-    milestones: list = Body(...),  # Each item: {week, completed, date}
+    milestones: list = Body(...),  
     current_user: str = Depends(get_current_user)
 ):
     from database.mongo import user_collection
 
-    # Fetch the user and course
+    
     user = await user_collection.find_one(
         {"username": current_user, "courses.courseName": course_name},
         {"courses.$": 1}
@@ -125,13 +125,11 @@ async def update_milestones(
     course = user["courses"][0]
     milestone_map = {m["week"]: m for m in milestones}
 
-    # Update only the matching milestones
     for m in course["milestones"]:
         if m["week"] in milestone_map:
             m["completed"] = milestone_map[m["week"]]["completed"]
             m["date"] = milestone_map[m["week"]]["date"]
 
-    # Save back the updated milestones array
     result = await user_collection.update_one(
         {"username": current_user, "courses.courseName": course_name},
         {"$set": {"courses.$.milestones": course["milestones"]}}

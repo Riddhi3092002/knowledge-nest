@@ -40,9 +40,6 @@ def github_generate_quiz(skills: str) -> str:
     )
     return response.choices[0].message.content.strip()
 
-# ---------------------------
-# Parse GPT output into structured JSON
-# ---------------------------
 def parse_gpt_quiz(text: str) -> QuizResponse:
     questions = []
 
@@ -52,16 +49,13 @@ def parse_gpt_quiz(text: str) -> QuizResponse:
         if not block:
             continue
 
-        # Extract question text (everything until the first option)
         q_match = re.search(r'Question \d+:\s*(.*?)\n[a-d]\)', block, re.DOTALL)
         if not q_match:
             continue
         q_text = q_match.group(1).strip()
 
-        # Extract options
         opts = re.findall(r'[a-d]\)\s.*', block, re.IGNORECASE)
 
-        # Extract answer
         ans_match = re.search(r'Answer:\s*([a-dA-D])', block)
         ans = ans_match.group(1).upper() if ans_match else ""
 
@@ -70,11 +64,6 @@ def parse_gpt_quiz(text: str) -> QuizResponse:
 
     return QuizResponse(questions=questions)
 
-
-
-# ---------------------------
-# Endpoint: generate quiz
-# ---------------------------
 @router.post("/generate/", response_model=QuizResponse)
 async def generate_quiz(request: QuizRequest):
     if not request.skills.strip():
@@ -84,9 +73,6 @@ async def generate_quiz(request: QuizRequest):
     quiz = parse_gpt_quiz(text)
     return quiz
 
-# ---------------------------
-# Endpoint: get completed skills for user
-# ---------------------------
 @router.get("/completed-skills/")
 async def get_user_skills(current_user: str = Depends(get_current_user)):
     from database.mongo import user_collection, courses_collection

@@ -14,11 +14,8 @@ client = OpenAI(
 MODEL_NAME = "llama-3.3-70b-versatile"
 router = APIRouter()
 
-MAX_CHARS_PER_CHUNK = 1500  # adjust to avoid token limits
+MAX_CHARS_PER_CHUNK = 1500  
 
-# --------------------------- 
-# PDF text extraction
-# ---------------------------
 def extract_text_from_pdf(file: UploadFile) -> str:
     doc = fitz.open(stream=file.file.read(), filetype="pdf")
     text = "".join([page.get_text() for page in doc])
@@ -27,9 +24,6 @@ def extract_text_from_pdf(file: UploadFile) -> str:
 def clean_text(text: str) -> str:
     return re.sub(r"\s+", " ", text).strip()
 
-# ---------------------------
-# Chunking
-# ---------------------------
 def chunk_text(text: str, max_chars=MAX_CHARS_PER_CHUNK):
     chunks = []
     text = text.strip()
@@ -44,9 +38,6 @@ def chunk_text(text: str, max_chars=MAX_CHARS_PER_CHUNK):
         chunks.append(text)
     return chunks
 
-# ---------------------------
-# Summarization function
-# ---------------------------
 def summarize_chunk(text: str) -> str:
     response = client.chat.completions.create(
         model=MODEL_NAME,
@@ -63,12 +54,8 @@ def summarize_text(text: str) -> str:
     text = clean_text(text)
     chunks = chunk_text(text)
     summaries = [summarize_chunk(chunk) for chunk in chunks]
-    # Combine chunk summaries into a final summary
     return " ".join(summaries)
 
-# ---------------------------
-# FastAPI endpoint
-# ---------------------------
 @router.post("/summarize/")
 async def summarize_endpoint(text: str = Form(None), pdf: UploadFile = File(None)):
     if pdf:
