@@ -8,13 +8,13 @@ Knowledge Nest is a full-stack educational ecosystem that bridges the gap betwee
 
 ## 🚀 Key Features
 
-### 🔍 Course Discovery & Management
+### Course Discovery & Management
 * **Massive Repository:** Search through 8,000+ courses (Kaggle dataset) filtered by field.
 * **Progress Dashboard:** Track "In-Progress" vs. "Completed" courses with a dedicated management tab.
 * **Granular Tracking:** Check off weekly modules, which automatically updates completion percentages and timestamps your progress.
 * **Personal Notes:** Add custom comments and insights to any course in your list.
 
-### 🤖 AI-Powered Study Tools (via Groq API)
+### AI-Powered Study Tools (via Groq API)
 * **Smart Summarizer:** Upload PDFs or paste text to generate concise summaries in under **7 seconds**.
 * **Contextual Quiz Generation:** Quizzes are dynamically generated based on the specific skills from the user's active/completed courses—ensuring the AI tutor stays relevant to your actual studies.
 * **Auto-Grading:** Instant evaluation of AI-generated quizzes to validate learning retention.
@@ -34,7 +34,7 @@ Knowledge Nest is a full-stack educational ecosystem that bridges the gap betwee
 
 ---
 
-## 🏗️ System Architecture
+## System Architecture
 
 
 
@@ -57,7 +57,7 @@ Traditional platforms often lead to "tutorial hell." **Knowledge Nest** solves t
 
 ## 📸 Preview
 
-| Login & Dashboard | Progress Tracking | Summarize | AI Quiz Generator |
+| Login & Dashboard | My Courses | Progress Tracking | Summarize | AI Quiz Generator |
 | :--- | :--- | :--- | :--- | :--- |
 | ![Login and Dashboard](screenshots/Login%20%26%20Dashboard.gif) | ![My Courses](screenshots/MyCourses.gif) | ![Progress Tracking](screenshots/Progress%20Tracking.gif) | ![Progress Tracking](screenshots/Progress%20Tracking.gif) | ![AI Quiz Generation](screenshots/Quiz.gif) |
 
