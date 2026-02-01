@@ -55,44 +55,15 @@ Traditional platforms often lead to "tutorial hell." **Knowledge Nest** solves t
 
 ---
 
-## 📸 Feature Previews
+## 📸 Project Preview
 
-> **Tip:** Click on a section below to expand the demonstration.
+> **Tip:** Click on any image to view it in full resolution.
 
-<details>
-<summary><b>1. Login & Dashboard (Click to expand)</b></summary>
-<br>
-<img src="screenshots/Login%20%26%20Dashboard.gif" width="100%" alt="Login and Dashboard">
-<p align="center"><i>Secure JWT authentication and searchable course repository.</i></p>
-</details>
+| Login & Dashboard | Progress Tracking |
+| :---: | :---: |
+| [![Login](screenshots/Login%20%26%20Dashboard.gif)](screenshots/Login%20%26%20Dashboard.gif) | [![Progress](screenshots/Progress%20Tracking.gif)](screenshots/Progress%20Tracking.gif) |
+| **My Courses** | **AI Quiz Generator** |
+| [![Courses](screenshots/MyCourses.gif)](screenshots/MyCourses.gif) | [![Quiz](screenshots/Quiz.gif)](screenshots/Quiz.gif) |
 
-<details>
-<summary><b>2. My Courses (Click to expand)</b></summary>
-<br>
-<img src="screenshots/MyCourses.gif" width="100%" alt="My Courses">
-<p align="center"><i>Management hub for active and completed certifications.</i></p>
-</details>
-
-<details>
-<summary><b>3. Progress Tracking (Click to expand)</b></summary>
-<br>
-<img src="screenshots/Progress%20Tracking.gif" width="100%" alt="Progress Tracking">
-<p align="center"><i>Real-time completion percentage calculations based on module checklists.</i></p>
-</details>
-
-<details>
-<summary><b>4. AI Summarization (Click to expand)</b></summary>
-<br>
-<img src="screenshots/Progress%20Tracking.gif" width="100%" alt="Summarization">
-<p align="center"><i>Instant PDF and text summarization using Llama 3.3.</i></p>
-</details>
-
-<details>
-<summary><b>5. AI Quiz Generator (Click to expand)</b></summary>
-<br>
-<img src="screenshots/Quiz.gif" width="100%" alt="Quiz Generator">
-<p align="center"><i>Dynamic, skill-based quizzes generated from your learning history.</i></p>
-</details>
-
----
-
+### 📝 AI Summarization
+[![Summarize](screenshots/Progress%20Tracking.gif)](screenshots/Progress%20Tracking.gif)
