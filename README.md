@@ -57,13 +57,37 @@ Traditional platforms often lead to "tutorial hell." **Knowledge Nest** solves t
 
 ## 📸 Project Preview
 
-> **Tip:** Click on any image to view it in full resolution.
+> **Note:** Images are scaled for readability. Click any image to view the full 1280x720 resolution.
 
-| Login & Dashboard | Progress Tracking |
-| :---: | :---: |
-| [![Login](screenshots/Login%20%26%20Dashboard.gif)](screenshots/Login%20%26%20Dashboard.gif) | [![Progress](screenshots/Progress%20Tracking.gif)](screenshots/Progress%20Tracking.gif) |
-| **My Courses** | **AI Quiz Generator** |
-| [![Courses](screenshots/MyCourses.gif)](screenshots/MyCourses.gif) | [![Quiz](screenshots/Quiz.gif)](screenshots/Quiz.gif) |
+### 1. Login & Dashboard
+<a href="screenshots/Login%20%26%20Dashboard.gif">
+  <img src="screenshots/Login%20%26%20Dashboard.gif" width="600" alt="Login and Dashboard">
+</a>
 
-### 📝 AI Summarization
-[![Summarize](screenshots/Progress%20Tracking.gif)](screenshots/Progress%20Tracking.gif)
+---
+
+### 2. My Courses
+<a href="screenshots/MyCourses.gif">
+  <img src="screenshots/MyCourses.gif" width="600" alt="My Courses">
+</a>
+
+---
+
+### 3. Progress Tracking
+<a href="screenshots/Progress%20Tracking.gif">
+  <img src="screenshots/Progress%20Tracking.gif" width="600" alt="Progress Tracking">
+</a>
+
+---
+
+### 4. AI Summarization
+<a href="screenshots/Progress%20Tracking.gif">
+  <img src="screenshots/Progress%20Tracking.gif" width="600" alt="Summarize">
+</a>
+
+---
+
+### 5. AI Quiz Generator
+<a href="screenshots/Quiz.gif">
+  <img src="screenshots/Quiz.gif" width="600" alt="Quiz Generator">
+</a>
