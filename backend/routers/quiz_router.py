@@ -17,6 +17,7 @@ client = OpenAI(
 MODEL_NAME = "llama-3.3-70b-versatile"
 
 router = APIRouter()
+
 def github_generate_quiz(skills: str) -> str:
     prompt = f"""
     You are a helpful assistant. Generate 3 multiple-choice questions (A-D) to test knowledge of the following skills: {skills}.
@@ -42,7 +43,6 @@ def github_generate_quiz(skills: str) -> str:
 
 def parse_gpt_quiz(text: str) -> QuizResponse:
     questions = []
-
     blocks = text.split("---")
     for block in blocks:
         block = block.strip()
@@ -55,7 +55,6 @@ def parse_gpt_quiz(text: str) -> QuizResponse:
         q_text = q_match.group(1).strip()
 
         opts = re.findall(r'[a-d]\)\s.*', block, re.IGNORECASE)
-
         ans_match = re.search(r'Answer:\s*([a-dA-D])', block)
         ans = ans_match.group(1).upper() if ans_match else ""
 
@@ -69,7 +68,6 @@ async def generate_quiz(request: QuizRequest):
     if not request.skills.strip():
         raise HTTPException(status_code=400, detail="No skills provided.")
     text = github_generate_quiz(request.skills)
-    print(text)
     quiz = parse_gpt_quiz(text)
     return quiz
 
@@ -86,8 +84,9 @@ async def get_user_skills(current_user: str = Depends(get_current_user)):
 
     courses_cursor = courses_collection.find({"Title": {"$in": course_names}}, {"Skills": 1})
     async for course in courses_cursor:
-        skills_str = course.get("Skills", "")
-        skills = [s.strip() for s in skills_str.split(",") if s.strip()]
-        skills_set.update(skills)
+        skills_val = course.get("Skills")
+        if isinstance(skills_val, str) and skills_val.strip():
+            skills = [s.strip() for s in skills_val.split(",") if s.strip()]
+            skills_set.update(skills)
 
-    return list(skills_set)
+    return sorted(list(skills_set))
