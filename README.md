@@ -82,7 +82,7 @@ Traditional platforms often lead to "tutorial hell." **Knowledge Nest** solves t
 
 ### 4. AI Summarization
 <a href="screenshots/Progress%20Tracking.gif">
-  <img src="screenshots/Progress%20Tracking.gif" width="600" alt="Summarize">
+  <img src="screenshots/Summarize.gif" width="600" alt="Summarize">
 </a>
 
 ---
@@ -91,3 +91,4 @@ Traditional platforms often lead to "tutorial hell." **Knowledge Nest** solves t
 <a href="screenshots/Quiz.gif">
   <img src="screenshots/Quiz.gif" width="600" alt="Quiz Generator">
 </a>
+
