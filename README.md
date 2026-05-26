@@ -2,7 +2,6 @@
 
 Knowledge Nest is a full-stack educational ecosystem that bridges the gap between massive course repositories and active, AI-assisted learning. It enables users to manage their learning journey through a searchable database of **8,000+ Coursera courses**, persistent progress tracking, and an integrated AI tutor.
 
-**🔗 [View Live Project](https://theknowledgenest.netlify.app/)**
 
 ---
 
